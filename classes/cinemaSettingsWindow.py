@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QTableWidgetItem
 from PyQt5.QtCore import Qt
-from PyQt5 import uic
+from PyQt5 import uic, QtGui
 from classes import hallsSettingsWindow
 import sqlite3
 
@@ -9,6 +9,7 @@ class CinemaSettingsWindow(QMainWindow):
     def __init__(self, settingsWindow):
         super().__init__()
         uic.loadUi('windows/sinema_settings.ui', self) 
+        self.setWindowIcon(QtGui.QIcon("img/icon.png"))
         self.settingsWindow = settingsWindow
         self.con = sqlite3.connect("cinema.db")
         self.cur = self.con.cursor()
